@@ -1,6 +1,8 @@
 import "./globals.css";
 import { Figtree } from "next/font/google";
 import localFont from "next/font/local";
+import { Header } from "./_components/header/header";
+import { Footer } from "./_components/footer/footer";
 
 const IranYekan = localFont({
   src: [
@@ -52,15 +54,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html dir="rtl" className={`${figtree.variable} ${IranYekan.variable}`}>
-      <body className="flex flex-col min-h-screen">
-        <header className="bg-secondary flex items-center justify-center h-20">
-          احد شیبانی
-        </header>
+    <html
+      dir="rtl"
+      className={`dark ${figtree.variable} ${IranYekan.variable}`}
+    >
+      <body className=" grid grid-rows-[80px_1fr_auto] min-h-screen dark:bg-base-100 dark:text-base-content">
+        <Header />
+
         <div className="flex-1 flex">{children}</div>
-        <footer className="bg-secondary flex items-center justify-center h-20">
-          footer
-        </footer>
+        <Footer />
       </body>
     </html>
   );
